@@ -10,7 +10,7 @@ const fs = require('fs');
  * Imports 
  * End
  */
-
+const port = process.env.PORT || 3000;
 var app= express();
 
 app.set('view engine', 'hbs');
@@ -40,7 +40,6 @@ app.use((req, res, next) => {
 }); */
 app.use(express.static(__dirname+'/public'));
 
-const server_port = 3000;
 
 app.get('/', (req, res) => {
     // res.send('<h1>Hello Express !</h1>');
@@ -68,6 +67,6 @@ app.get('/bad', (req, res) => {
        errorMessage: 'Unable to handle the request'
    });
 });
-app.listen(server_port, () => {
-    console.log(`Server is running on port : ${server_port}`);
+app.listen(port, () => {
+    console.log(`Server is running on port : ${port}`);
 });
